@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA VI (Official PC/PS5) - ONLY 420 TK! 🔥 LIMITED OFFER</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Pricedown-style & Modern Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- Tone.js for funny synthesized sound effects (No external audio files needed) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <style>
+        /* Custom Vice City / Leonida Sunset Aesthetic */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0626 0%, #3b0d54 45%, #7a1c5e 80%, #ff5e62 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .vice-title {
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff7ad 0%, #ffa9f9 50%, #ff47a3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 4px 12px rgba(255, 71, 163, 0.6));
+        }
+
+        .vice-script {
+            font-family: 'Permanent Marker', cursive;
+            color: #00f2fe;
+            text-shadow: 0 0 10px #00f2fe, 0 0 20px #ff007f;
+        }
+
+        .neon-card {
+            background: rgba(20, 8, 36, 0.78);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 105, 180, 0.4);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 0, 128, 0.15);
+        }
+
+        .neon-btn {
+            background: linear-gradient(90deg, #ff007f, #ff8c00, #ff007f);
+            background-size: 200% auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.7);
+        }
+
+        .neon-btn:hover {
+            background-position: right center;
+            transform: scale(1.04);
+            box-shadow: 0 0 35px rgba(255, 140, 0, 0.9);
+        }
+
+        .neon-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Animations for the Troll Modal */
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            15% { transform: translate(-12px, -8px) rotate(-3deg); }
+            30% { transform: translate(12px, 6px) rotate(3deg); }
+            45% { transform: translate(-10px, 8px) rotate(-2deg); }
+            60% { transform: translate(10px, -6px) rotate(2deg); }
+            75% { transform: translate(-6px, -4px) rotate(-1deg); }
+            90% { transform: translate(6px, 4px) rotate(1deg); }
+        }
+
+        .animate-shake {
+            animation: shake 0.55s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes pulseFast {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .animate-pulse-fast {
+            animation: pulseFast 0.8s infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+
+        /* Confetti particles */
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            z-index: 100;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-pink-500 selection:text-white">
+
+    <!-- Top Urgent Scammer Ticker -->
+    <div class="bg-gradient-to-r from-yellow-400 via-pink-500 to-cyan-400 text-black font-extrabold text-xs sm:text-sm py-2 px-4 text-center uppercase tracking-wider shadow-lg">
+        🚨 FLASH SALE: 99.4% OFF! ONLY <span id="stock-count" class="underline bg-black text-yellow-300 px-1.5 py-0.5 rounded">2 COPIES</span> LEFT IN BANGLADESH! bKash / Nagad / Rocket ACCEPTED! 🚨
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="max-w-6xl w-full mx-auto px-4 py-5 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-pink-500 to-yellow-400 flex items-center justify-center text-2xl font-black text-black shadow-lg">
+                VI
+            </div>
+            <div>
+                <span class="font-black text-xl tracking-tight text-white">LEONIDA<span class="text-pink-400">DEALS</span>.BD</span>
+                <p class="text-[11px] text-cyan-300 font-semibold">100% Totally Legit Gaming Store™</p>
+            </div>
+        </div>
+
+        <!-- Fake Live Countdown -->
+        <div class="neon-card px-4 py-2 rounded-xl flex items-center gap-3">
+            <span class="text-xs uppercase font-bold text-pink-300">Offer Ends In:</span>
+            <div id="countdown" class="font-mono text-lg sm:text-xl font-black text-yellow-300 tracking-widest">
+                00:04:59
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Product Section -->
+    <main class="max-w-6xl w-full mx-auto px-4 py-6 sm:py-10 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left Column: Fake Game Cover Art (Custom SVG) -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-sm animate-float">
+                    <!-- 99% OFF Badge -->
+                    <div class="absolute -top-5 -right-4 z-20 bg-yellow-400 text-black font-black text-sm sm:text-base px-4 py-2 rounded-full rotate-12 shadow-xl border-2 border-white animate-pulse-fast">
+                        99% OFF 🔥
+                    </div>
+
+                    <!-- Custom Vice City Sunset Box Art SVG -->
+                    <div class="rounded-2xl overflow-hidden border-4 border-pink-400/70 shadow-[0_0_50px_rgba(255,0,127,0.5)] bg-slate-900">
+                        <svg viewBox="0 0 400 500" class="w-full h-auto block" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#19053a"/>
+                                    <stop offset="45%" stop-color="#8e1b6b"/>
+                                    <stop offset="78%" stop-color="#ff5e62"/>
+                                    <stop offset="100%" stop-color="#ff9966"/>
+                                </linearGradient>
+                                <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#fff200"/>
+                                    <stop offset="100%" stop-color="#ff007f"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Sky -->
+                            <rect width="400" height="500" fill="url(#skyGrad)"/>
+                            <!-- Retro Sun -->
+                            <circle cx="200" cy="255" r="105" fill="url(#sunGrad)"/>
+                            <!-- Sun Stripes -->
+                            <rect x="80" y="280" width="240" height="6" fill="#ff5e62" opacity="0.7"/>
+                            <rect x="80" y="298" width="240" height="9" fill="#ff5e62" opacity="0.8"/>
+                            <rect x="80" y="320" width="240" height="12" fill="#8e1b6b" opacity="0.85"/>
+                            
+                            <!-- Palm Trees Silhouettes -->
+                            <path d="M55,390 Q70,290 45,210" stroke="#130324" stroke-width="10" fill="none"/>
+                            <path d="M45,210 Q10,200 -5,230 M45,210 Q15,175 -10,190 M45,210 Q50,165 80,180 M45,210 Q85,195 95,225" stroke="#130324" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+                            <path d="M345,390 Q330,280 355,195" stroke="#130324" stroke-width="11" fill="none"/>
+                            <path d="M355,195 Q390,185 410,215 M355,195 Q385,160 410,175 M355,195 Q340,150 310,165 M355,195 Q315,185 305,215" stroke="#130324" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+                            <!-- City Skyline Silhouette -->
+                            <rect x="0" y="345" width="400" height="155" fill="#120424"/>
+                            <rect x="25" y="305" width="40" height="50" fill="#120424"/>
+                            <rect x="75" y="285" width="45" height="70" fill="#120424"/>
+                            <rect x="135" y="315" width="55" height="40" fill="#120424"/>
+                            <rect x="210" y="275" width="48" height="80" fill="#120424"/>
+                            <rect x="275" y="300" width="50" height="55" fill="#120424"/>
+
+                            <!-- Glowing Neon Windows -->
+                            <rect x="85" y="295" width="6" height="6" fill="#00f2fe"/>
+                            <rect x="100" y="295" width="6" height="6" fill="#00f2fe"/>
+                            <rect x="85" y="310" width="6" height="6" fill="#ff007f"/>
+                            <rect x="222" y="290" width="7" height="7" fill="#fff200"/>
+                            <rect x="238" y="305" width="7" height="7" fill="#00f2fe"/>
+
+                            <!-- Top Platform Banner -->
+                            <rect x="0" y="0" width="400" height="42" fill="#0b0217" opacity="0.9"/>
+                            <text x="200" y="27" font-family="Inter, sans-serif" font-weight="900" font-size="16" fill="#00f2fe" text-anchor="middle" letter-spacing="3">PC • PS5 • XBOX • NOKIA 3310</text>
+
+                            <!-- Giant Roman Numeral VI -->
+                            <text x="200" y="185" font-family="Anton, sans-serif" font-size="135" fill="#ff007f" stroke="#ffffff" stroke-width="4" text-anchor="middle" opacity="0.95">VI</text>
+                            <text x="200" y="125" font-family="Anton, sans-serif" font-size="36" fill="#ffffff" stroke="#000000" stroke-width="2" text-anchor="middle" letter-spacing="2">GRAND THEFT AUTO</text>
+                            <text x="200" y="220" font-family="Permanent Marker, cursive" font-size="34" fill="#00f2fe" text-anchor="middle">Leonida Edition</text>
+
+                            <!-- Bottom Price Stamp -->
+                            <rect x="30" y="385" width="340" height="85" rx="16" fill="#1f0836" stroke="#ff007f" stroke-width="3"/>
+                            <text x="200" y="422" font-family="Inter, sans-serif" font-weight="900" font-size="26" fill="#fff200" text-anchor="middle">ONLY 420 TK 🔥</text>
+                            <text x="200" y="450" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#ff99cc" text-anchor="middle">INSTANT DIGITAL KEY + FREE HELICOPTER</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Too-Good-To-Be-True Offer Details -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-pink-500/20 border border-pink-400/50 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold text-pink-200">
+                    <span>⭐ 5.0 (69,420 Verified Gamers)</span>
+                    <span>•</span>
+                    <span class="text-cyan-300">Instant Delivery</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-black leading-tight">
+                    <span class="vice-title block">GRAND THEFT AUTO VI</span>
+                    <span class="vice-script text-2xl sm:text-4xl block mt-1">Deluxe Billionaire Edition</span>
+                </h1>
+
+                <p class="text-pink-100/90 text-base sm:text-lg leading-relaxed">
+                    Why pay <span class="line-through text-pink-300 font-bold">12,500 TK</span> when our uncle works at Rockstar Games and leaked the full 250GB game for just <span class="text-yellow-300 font-extrabold">420 Taka</span>?! Includes unlimited in-game cash, Jason & Lucia skins, and 100% real Vice City vibes!
+                </p>
+
+                <!-- Price Box -->
+                <div class="neon-card p-5 sm:p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-cyan-300 block">Special Eid + Pohela Boishakh + Tuesday Offer</span>
+                        <div class="flex items-baseline gap-3 mt-1">
+                            <span class="text-4xl sm:text-5xl font-black text-yellow-300">৳420 TK</span>
+                            <span class="text-lg sm:text-xl line-through text-gray-400 font-bold">৳12,500 TK</span>
+                            <span class="bg-green-500 text-black text-xs font-black px-2 py-1 rounded-md">SAVE 99%</span>
+                        </div>
+                    </div>
+                    <div class="text-left sm:text-right text-xs text-pink-200 space-y-1">
+                        <p>✅ No Virus (Trust me bro)</p>
+                        <p>✅ Runs on 2GB RAM Intel HD</p>
+                        <p>✅ Lifetime Warranty</p>
+                    </div>
+                </div>
+
+                <!-- Fake Quick Checkout Form -->
+                <div class="neon-card p-5 rounded-2xl space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-pink-200 uppercase mb-1">Your Gamer Tag / Name</label>
+                            <input id="gamer-name" type="text" placeholder="e.g. ProGamer_BD69" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-pink-500/40 text-white placeholder-pink-300/40 focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-pink-200 uppercase mb-1">Select Payment Method</label>
+                            <select id="payment-method" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-pink-500/40 text-white focus:outline-none focus:border-cyan-400">
+                                <option value="bKash">bKash (017-SCAM-ME-NOW)</option>
+                                <option value="Nagad">Nagad (Instant Taka Gone)</option>
+                                <option value="Rocket">Rocket (To The Moon 🚀)</option>
+                                <option value="Kidney">1x Healthy Kidney</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- THE TRAP BUTTON -->
+                    <button id="buy-now-btn" onclick="triggerScamPrank()" class="neon-btn w-full py-4 sm:py-5 px-6 rounded-2xl text-xl sm:text-2xl font-black text-white uppercase tracking-wider cursor-pointer flex items-center justify-center gap-3">
+                        <span>🔥 BUY NOW - 420 TK ONLY 🔥</span>
+                    </button>
+                    <p class="text-center text-[11px] text-pink-200/70">
+                        By clicking "Buy Now", you agree that you have zero common sense about game pricing.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fake Ridiculous Reviews Section -->
+        <section class="mt-14 pt-10 border-t border-pink-500/30">
+            <h2 class="text-2xl sm:text-3xl font-black text-center mb-8">
+                What <span class="text-cyan-300">"Real"</span> Customers Are Saying 💬
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="neon-card p-5 rounded-2xl space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-yellow-300">Shakib_Bhai_99</span>
+                        <span class="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded-full">Verified Buyer</span>
+                    </div>
+                    <div class="text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
+                    <p class="text-sm text-pink-100/90">"Bought it for 420 TK! Downloaded a 2MB file called GTA6_REAL.exe and now my PC fan sounds like a Boeing 747! 10/10 graphics!"</p>
+                </div>
+
+                <div class="neon-card p-5 rounded-2xl space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-cyan-300">HeroAlom_Gaming</span>
+                        <span class="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded-full">Verified Buyer</span>
+                    </div>
+                    <div class="text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
+                    <p class="text-sm text-pink-100/90">"Best 420 Taka ever spent. Works smoothly on my Nokia button phone with 60 FPS ray tracing!"</p>
+                </div>
+
+                <div class="neon-card p-5 rounded-2xl space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-pink-300">Sam_Houser_Rockstar</span>
+                        <span class="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded-full">CEO of Rockstar</span>
+                    </div>
+                    <div class="text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
+                    <p class="text-sm text-pink-100/90">"Yes bro this website is 100% official. Please send 420 TK via bKash immediately."</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 px-4 text-xs text-pink-200/60 border-t border-pink-500/20 mt-10">
+        <p>⚠️ PARODY / MEME WEBSITE FOR FUN ONLY • No real money is collected. Made for GitHub Pages.</p>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- HILARIOUS "YOU GOT SCAMMED" POPUP MODAL                               -->
+    <!-- ===================================================================== -->
+    <div id="scam-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div id="scam-card" class="relative w-full max-w-lg rounded-3xl bg-gradient-to-b from-red-600 via-pink-700 to-purple-950 border-4 border-yellow-300 p-6 sm:p-8 text-center shadow-[0_0_80px_rgba(255,0,85,0.9)]">
+            
+            <!-- Top Siren Pill -->
+            <div class="inline-block bg-yellow-300 text-black font-black text-xs sm:text-sm px-4 py-1 rounded-full uppercase tracking-widest mb-4 animate-bounce">
+                🚨 SCAM ALERT • IQ TEST FAILED 🚨
+            </div>
+
+            <!-- Big Laughing Emoji -->
+            <div class="text-7xl sm:text-8xl mb-3 select-none animate-pulse-fast">
+                😂💀
+            </div>
+
+            <!-- Headline -->
+            <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight drop-shadow-lg mb-3">
+                HAHA! YOU GOT SCAMMED!
+            </h2>
+
+            <!-- Dynamic Personalized Roast Message -->
+            <div class="bg-black/45 border border-yellow-300/40 rounded-2xl p-4 sm:p-5 mb-6 space-y-2">
+                <p id="roast-text" class="text-lg sm:text-xl font-extrabold text-yellow-300">
+                    Did you really think GTA 6 costs 420 TK?! Go touch some grass bro 💀
+                </p>
+                <p id="roast-subtext" class="text-xs sm:text-sm text-pink-200">
+                    Rockstar Games is currently laughing at your 420 Taka budget.
+                </p>
+            </div>
+
+            <!-- Funny Sound FX Visual Badges -->
+            <div class="flex flex-wrap justify-center gap-2 mb-6 text-xs font-black">
+                <span class="bg-white/15 px-3 py-1 rounded-full text-cyan-300">🔊 *BRUH SOUND EFFECT #2*</span>
+                <span class="bg-white/15 px-3 py-1 rounded-full text-yellow-300">🎺 *SAD TROMBONE*</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <button onclick="closeModal()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-yellow-400 hover:bg-yellow-300 text-black font-black text-base uppercase tracking-wide transition transform hover:scale-105 cursor-pointer shadow-lg">
+                    😭 Cry About It & Close
+                </button>
+                <button onclick="sharePrank()" id="share-btn" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black text-base uppercase tracking-wide transition transform hover:scale-105 cursor-pointer shadow-lg">
+                    🔗 Prank a Friend
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // 1. Fake Countdown Timer (Always resets so the urgency never ends!)
+        let timeLeft = 299; // 4 minutes 59 seconds
+        const countdownEl = document.getElementById('countdown');
+
+        setInterval(() => {
+            if (timeLeft <= 0) {
+                timeLeft = 299; // Reset timer like every fake scam site
+            }
+            const mins = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+            const secs = String(timeLeft % 60).padStart(2, '0');
+            countdownEl.textContent = `00:${mins}:${secs}`;
+            timeLeft--;
+        }, 1000);
+
+        // 2. Funny Roast Messages Pool
+        const roasts = [
+            "Did you really think GTA 6 costs 420 TK?! Go touch some grass bro 💀",
+            "Bro tried to buy a $70 next-gen masterpiece with 420 Taka! Even Vice City's NPCs are laughing 😂",
+            "Congratulations! You just bought 100% pure air! Now go study or get a job 😭",
+            "420 TK?! That barely buys two plates of Kacchi Biryani in Dhaka, let alone GTA VI! 💀",
+            "Mission Failed: Common Sense Not Found! Respect -1000 📉"
+        ];
+
+        // 3. Play Funny Synthesized "Sad Trombone / Troll" Sound via Tone.js
+        async function playTrollSound() {
+            try {
+                await Tone.start();
+                const synth = new Tone.Synth({
+                    oscillator: { type: "sawtooth" },
+                    envelope: { attack: 0.05, decay: 0.2, sustain: 0.4, release: 0.4 }
+                }).toDestination();
+
+                const now = Tone.now();
+                // Classic "Wah-wah-wah-waaaah" sad trombone notes
+                synth.triggerAttackRelease("D4", "8n", now);
+                synth.triggerAttackRelease("Db4", "8n", now + 0.3);
+                synth.triggerAttackRelease("C4", "8n", now + 0.6);
+                synth.triggerAttackRelease("B3", "2n", now + 0.9);
+            } catch (e) {
+                // Ignore audio errors if browser blocks autoplay
+                console.log("Audio skipped:", e);
+            }
+        }
+
+        // 4. Spawn Confetti Explosion
+        function launchConfetti() {
+            const colors = ['#ff007f', '#00f2fe', '#fff200', '#ff8c00', '#ffffff', '#a855f7'];
+            const emojis = ['😂', '💀', '🤡', '💸', '🔥'];
+
+            for (let i = 0; i < 65; i++) {
+                const conf = document.createElement('div');
+                conf.className = 'confetti';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = '-20px';
+                conf.style.animationDuration = (Math.random() * 2 + 1.8) + 's';
+                conf.style.animationDelay = (Math.random() * 0.4) + 's';
+
+                if (i % 4 === 0) {
+                    conf.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    conf.style.fontSize = '22px';
+                    conf.style.background = 'transparent';
+                } else {
+                    conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '3px';
+                }
+
+                document.body.appendChild(conf);
+                setTimeout(() => conf.remove(), 4200);
+            }
+        }
+
+        // 5. Trigger the Scam Prank Modal
+        function triggerScamPrank() {
+            const modal = document.getElementById('scam-modal');
+            const card = document.getElementById('scam-card');
+            const roastText = document.getElementById('roast-text');
+            const roastSubtext = document.getElementById('roast-subtext');
+
+            const nameInput = document.getElementById('gamer-name').value.trim();
+            const paymentMethod = document.getElementById('payment-method').value;
+
+            // Pick a random hilarious roast
+            const randomRoast = roasts[Math.floor(Math.random() * roasts.length)];
+            roastText.textContent = nameInput ? `${nameInput}, ${randomRoast.charAt(0).toLowerCase() + randomRoast.slice(1)}` : randomRoast;
+            roastSubtext.textContent = `Nice try paying 420 TK via ${paymentMethod}! Your wallet is safe, only your pride was damaged.`;
+
+            // Show modal & trigger shake animation
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            card.classList.remove('animate-shake');
+            void card.offsetWidth; // Force reflow to restart animation
+            card.classList.add('animate-shake');
+
+            playTrollSound();
+            launchConfetti();
+        }
+
+        // 6. Close Modal
+        function closeModal() {
+            const modal = document.getElementById('scam-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 7. Copy Page Link to Prank Friends (iFrame-safe clipboard fallback)
+        function sharePrank() {
+            const shareBtn = document.getElementById('share-btn');
+            const tempInput = document.createElement('input');
+            tempInput.value = window.location.href;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const originalText = shareBtn.textContent;
+            shareBtn.textContent = "✅ Link Copied! Send it!";
+            setTimeout(() => {
+                shareBtn.textContent = originalText;
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
